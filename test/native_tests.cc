@@ -27,6 +27,15 @@ typedef union _test3 {
   int c;
 } test3;
 
+typedef union _test4 {
+  struct {
+    char a;
+    short b;
+    int c;
+  } a;
+  int b;
+} test4;
+
 void Initialize(Handle<Object> target) {
   HandleScope scope;
 
@@ -45,6 +54,11 @@ void Initialize(Handle<Object> target) {
   target->Set(String::NewSymbol("test3 offsetof a"), Number::New(offsetof(test3, a)));
   target->Set(String::NewSymbol("test3 offsetof b"), Number::New(offsetof(test3, b)));
   target->Set(String::NewSymbol("test3 offsetof c"), Number::New(offsetof(test3, c)));
+
+  target->Set(String::NewSymbol("test4 sizeof"), Number::New(sizeof(test4)));
+  target->Set(String::NewSymbol("test4 alignof"), Number::New(__alignof__(test4)));
+  target->Set(String::NewSymbol("test4 offsetof a"), Number::New(offsetof(test4, a)));
+  target->Set(String::NewSymbol("test4 offsetof b"), Number::New(offsetof(test4, b)));
 
 }
 
