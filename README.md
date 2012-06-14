@@ -19,9 +19,27 @@ Examples
 --------
 
 ``` js
-var UnionType = require('ref-union')
+var ref = require('ref')
+var Union = require('ref-union')
 
+// a couple typedefs
+var int = ref.types.int
+var float = ref.types.float
+var string = ref.types.Utf8String
 
+// define a Union type with 3 data fields
+var u_tag = new Union({
+    ival: int
+  , fval: float
+  , sval: string
+})
+
+// the size of the union matches the largest data type in the union type
+u_tag.size === string.size
+
+// and you can create new instances of the union type
+var tag = new u_tag
+tag.ival = 5
 ```
 
 
