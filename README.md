@@ -3,13 +3,17 @@ ref-union
 ### Create ABI-compliant "union" instances on top of Buffers
 [![Build Status](https://secure.travis-ci.org/TooTallNate/ref-union.png)](http://travis-ci.org/TooTallNate/ref-union)
 
-### This module does not work yet. I accept patches ;)
 
 
 Installation
 ------------
 
-Clone the repo; under heavy development.
+Install with `npm`:
+
+``` bash
+$ npm install ref-union
+```
+
 
 Examples
 --------
