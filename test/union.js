@@ -76,13 +76,13 @@ describe('Union', function () {
 
     function test (unionType, testNumber) {
       describe('Union test' + testNumber, function () {
-        it('should have its `size` matching sizeof()', function () {
-          var expectedSize = bindings['test' + testNumber + ' sizeof']
+        var expectedSize = bindings['test' + testNumber + ' sizeof']
+        var expectedAlignment = bindings['test' + testNumber + ' alignof']
+        it('should have its `size` matching sizeof(): ' + expectedSize, function () {
           assert.equal(expectedSize, unionType.size, 'test' + testNumber +
             ': sizeof(): expected ' + unionType.size + ' to equal ' + expectedSize)
         })
-        it('should have its `alignment` matching __alignof__()', function () {
-          var expectedAlignment = bindings['test' + testNumber + ' alignof']
+        it('should have its `alignment` matching __alignof__(): ' + expectedAlignment, function () {
           assert.equal(expectedAlignment, unionType.alignment, 'test' + testNumber +
             ': __alignof__(): expected ' + unionType.alignment + ' to equal ' + expectedAlignment)
         })
