@@ -86,6 +86,16 @@ describe('Union', function () {
           assert.equal(expectedAlignment, unionType.alignment, 'test' + testNumber +
             ': __alignof__(): expected ' + unionType.alignment + ' to equal ' + expectedAlignment)
         })
+        Object.keys(unionType.fields).forEach(function (name) {
+          // these tests just verify the assumption that the
+          // offset of every field is always 0
+          it('should have a offsetof() of 0 for "' + name + '"', function () {
+            var offset = 0
+            var expectedOffset = bindings['test' + testNumber + ' offsetof ' + name]
+            assert.strictEqual(expectedOffset, offset, 'test' + testNumber + ': offsetof('
+                + name + '): expected ' + offset + ' to equal ' + expectedOffset)
+          })
+        })
       })
     }
 
