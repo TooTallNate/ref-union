@@ -13,7 +13,7 @@ describe('Union', function () {
     assert.equal('function', typeof Union)
   })
 
-  it('should return a struct constuctor function', function () {
+  it('should return a union constuctor function', function () {
     var U = Union()
     assert.equal('function', typeof U)
   })
@@ -53,7 +53,7 @@ describe('Union', function () {
 
       assert.strictEqual(ref.types.int, U.fields.ival.type)
       assert.strictEqual(ref.types.long, U.fields.lval.type)
-      assert.strictEqual(ref.types.Utf8String, U.fields.sval.type)
+      assert.strictEqual(ref.coerceType('string'), U.fields.sval.type)
     })
 
   })
@@ -118,6 +118,6 @@ describe('Union', function () {
     })
     test(test4, 4)
 
- })
+  })
 
 })
