@@ -25,7 +25,7 @@ var Union = require('ref-union')
 // a couple typedefs
 var int = ref.types.int
 var float = ref.types.float
-var string = ref.types.Utf8String
+var string = ref.types.CString
 
 // define a Union type with 3 data fields
 var u_tag = new Union({
