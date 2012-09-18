@@ -3,7 +3,7 @@ var assert = require('assert')
   , ref = require('ref')
   , Struct = require('ref-struct')
   , Union = require('../')
-  , bindings = require('./build/Release/native_tests')
+  , bindings = require('bindings')({ module_root: __dirname, bindings: 'native_tests' })
 
 describe('Union', function () {
 

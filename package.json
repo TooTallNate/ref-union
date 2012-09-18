@@ -15,6 +15,7 @@
 , "devDependencies": {
       "mocha": "*"
     , "ref-struct": "*"
+    , "bindings": "*"
   }
 , "engines": { "node": "*" }
 }
