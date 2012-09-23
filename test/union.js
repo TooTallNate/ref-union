@@ -87,6 +87,7 @@ describe('Union', function () {
             ': __alignof__(): expected ' + unionType.alignment + ' to equal ' + expectedAlignment)
         })
         Object.keys(unionType.fields).forEach(function (name) {
+          if ('skip' == name) return;
           // these tests just verify the assumption that the
           // offset of every field is always 0
           it('should have a offsetof() of 0 for "' + name + '"', function () {
@@ -139,6 +140,15 @@ describe('Union', function () {
       , 'b': ref.types.char
     })
     test(test6, 6)
+
+    var test7 = Union({
+        'a': ref.types.char
+      , 'b': ref.types.char
+      , 'skip': ref.types.char
+      , 'c': ref.types.short
+      , 'd': ref.types.char
+    })
+    test(test7, 7)
 
   })
 
