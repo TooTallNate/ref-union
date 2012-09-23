@@ -53,6 +53,12 @@ typedef union _test7 {
   char d;
 } test7;
 
+typedef union _test8 {
+  int a;
+  double b;
+  int c;
+} test8;
+
 
 void Initialize(Handle<Object> target) {
   HandleScope scope;
@@ -94,6 +100,12 @@ void Initialize(Handle<Object> target) {
   target->Set(String::NewSymbol("test7 offsetof b"), Number::New(offsetof(test7, b)));
   target->Set(String::NewSymbol("test7 offsetof c"), Number::New(offsetof(test7, c)));
   target->Set(String::NewSymbol("test7 offsetof d"), Number::New(offsetof(test7, d)));
+
+  target->Set(String::NewSymbol("test8 sizeof"), Number::New(sizeof(test8)));
+  target->Set(String::NewSymbol("test8 alignof"), Number::New(__alignof__(test8)));
+  target->Set(String::NewSymbol("test8 offsetof a"), Number::New(offsetof(test8, a)));
+  target->Set(String::NewSymbol("test8 offsetof b"), Number::New(offsetof(test8, b)));
+  target->Set(String::NewSymbol("test8 offsetof c"), Number::New(offsetof(test8, c)));
 }
 
 } // anonymous namespace

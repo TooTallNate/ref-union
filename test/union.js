@@ -150,6 +150,13 @@ describe('Union', function () {
     })
     test(test7, 7)
 
+    var test8 = Union({
+        'a': ref.types.int
+      , 'b': ref.types.double
+      , 'c': ref.types.int
+    })
+    test(test8, 8)
+
   })
 
 })
