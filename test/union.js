@@ -128,6 +128,18 @@ describe('Union', function () {
     })
     test(test4, 4)
 
+    var test5 = Union({
+        'a': ref.types.double
+      , 'b': ref.types.char
+    })
+    test(test5, 5)
+
+    var test6 = Union({
+        'a': test1
+      , 'b': ref.types.char
+    })
+    test(test6, 6)
+
   })
 
 })
