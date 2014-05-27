@@ -23,8 +23,5 @@
     "mocha": "*",
     "ref-struct": "*",
     "bindings": "*"
-  },
-  "engines": {
-    "node": "*"
   }
 }
