@@ -1,12 +1,10 @@
 #include <stdlib.h>
-#include "v8.h"
-#include "node.h"
+#include "nan.h"
 
 #ifdef _WIN32
   #define __alignof__ __alignof
 #endif
 
-using namespace v8;
 using namespace node;
 
 namespace {
@@ -60,52 +58,52 @@ typedef union _test8 {
 } test8;
 
 
-void Initialize(Handle<Object> target) {
-  HandleScope scope;
+void Initialize(v8::Handle<v8::Object> target) {
+  NanScope();
 
-  target->Set(String::NewSymbol("test1 sizeof"), Number::New(sizeof(test1)));
-  target->Set(String::NewSymbol("test1 alignof"), Number::New(__alignof__(test1)));
-  target->Set(String::NewSymbol("test1 offsetof a"), Number::New(offsetof(test1, a)));
-  target->Set(String::NewSymbol("test1 offsetof b"), Number::New(offsetof(test1, b)));
+  target->Set(NanNew<v8::String>("test1 sizeof"), NanNew<v8::Number>(sizeof(test1)));
+  target->Set(NanNew<v8::String>("test1 alignof"), NanNew<v8::Number>(__alignof__(test1)));
+  target->Set(NanNew<v8::String>("test1 offsetof a"), NanNew<v8::Number>(offsetof(test1, a)));
+  target->Set(NanNew<v8::String>("test1 offsetof b"), NanNew<v8::Number>(offsetof(test1, b)));
 
-  target->Set(String::NewSymbol("test2 sizeof"), Number::New(sizeof(test2)));
-  target->Set(String::NewSymbol("test2 alignof"), Number::New(__alignof__(test2)));
-  target->Set(String::NewSymbol("test2 offsetof a"), Number::New(offsetof(test2, a)));
-  target->Set(String::NewSymbol("test2 offsetof b"), Number::New(offsetof(test2, b)));
+  target->Set(NanNew<v8::String>("test2 sizeof"), NanNew<v8::Number>(sizeof(test2)));
+  target->Set(NanNew<v8::String>("test2 alignof"), NanNew<v8::Number>(__alignof__(test2)));
+  target->Set(NanNew<v8::String>("test2 offsetof a"), NanNew<v8::Number>(offsetof(test2, a)));
+  target->Set(NanNew<v8::String>("test2 offsetof b"), NanNew<v8::Number>(offsetof(test2, b)));
 
-  target->Set(String::NewSymbol("test3 sizeof"), Number::New(sizeof(test3)));
-  target->Set(String::NewSymbol("test3 alignof"), Number::New(__alignof__(test3)));
-  target->Set(String::NewSymbol("test3 offsetof a"), Number::New(offsetof(test3, a)));
-  target->Set(String::NewSymbol("test3 offsetof b"), Number::New(offsetof(test3, b)));
-  target->Set(String::NewSymbol("test3 offsetof c"), Number::New(offsetof(test3, c)));
+  target->Set(NanNew<v8::String>("test3 sizeof"), NanNew<v8::Number>(sizeof(test3)));
+  target->Set(NanNew<v8::String>("test3 alignof"), NanNew<v8::Number>(__alignof__(test3)));
+  target->Set(NanNew<v8::String>("test3 offsetof a"), NanNew<v8::Number>(offsetof(test3, a)));
+  target->Set(NanNew<v8::String>("test3 offsetof b"), NanNew<v8::Number>(offsetof(test3, b)));
+  target->Set(NanNew<v8::String>("test3 offsetof c"), NanNew<v8::Number>(offsetof(test3, c)));
 
-  target->Set(String::NewSymbol("test4 sizeof"), Number::New(sizeof(test4)));
-  target->Set(String::NewSymbol("test4 alignof"), Number::New(__alignof__(test4)));
-  target->Set(String::NewSymbol("test4 offsetof a"), Number::New(offsetof(test4, a)));
-  target->Set(String::NewSymbol("test4 offsetof b"), Number::New(offsetof(test4, b)));
+  target->Set(NanNew<v8::String>("test4 sizeof"), NanNew<v8::Number>(sizeof(test4)));
+  target->Set(NanNew<v8::String>("test4 alignof"), NanNew<v8::Number>(__alignof__(test4)));
+  target->Set(NanNew<v8::String>("test4 offsetof a"), NanNew<v8::Number>(offsetof(test4, a)));
+  target->Set(NanNew<v8::String>("test4 offsetof b"), NanNew<v8::Number>(offsetof(test4, b)));
 
-  target->Set(String::NewSymbol("test5 sizeof"), Number::New(sizeof(test5)));
-  target->Set(String::NewSymbol("test5 alignof"), Number::New(__alignof__(test5)));
-  target->Set(String::NewSymbol("test5 offsetof a"), Number::New(offsetof(test5, a)));
-  target->Set(String::NewSymbol("test5 offsetof b"), Number::New(offsetof(test5, b)));
+  target->Set(NanNew<v8::String>("test5 sizeof"), NanNew<v8::Number>(sizeof(test5)));
+  target->Set(NanNew<v8::String>("test5 alignof"), NanNew<v8::Number>(__alignof__(test5)));
+  target->Set(NanNew<v8::String>("test5 offsetof a"), NanNew<v8::Number>(offsetof(test5, a)));
+  target->Set(NanNew<v8::String>("test5 offsetof b"), NanNew<v8::Number>(offsetof(test5, b)));
 
-  target->Set(String::NewSymbol("test6 sizeof"), Number::New(sizeof(test6)));
-  target->Set(String::NewSymbol("test6 alignof"), Number::New(__alignof__(test6)));
-  target->Set(String::NewSymbol("test6 offsetof a"), Number::New(offsetof(test6, a)));
-  target->Set(String::NewSymbol("test6 offsetof b"), Number::New(offsetof(test6, b)));
+  target->Set(NanNew<v8::String>("test6 sizeof"), NanNew<v8::Number>(sizeof(test6)));
+  target->Set(NanNew<v8::String>("test6 alignof"), NanNew<v8::Number>(__alignof__(test6)));
+  target->Set(NanNew<v8::String>("test6 offsetof a"), NanNew<v8::Number>(offsetof(test6, a)));
+  target->Set(NanNew<v8::String>("test6 offsetof b"), NanNew<v8::Number>(offsetof(test6, b)));
 
-  target->Set(String::NewSymbol("test7 sizeof"), Number::New(sizeof(test7)));
-  target->Set(String::NewSymbol("test7 alignof"), Number::New(__alignof__(test7)));
-  target->Set(String::NewSymbol("test7 offsetof a"), Number::New(offsetof(test7, a)));
-  target->Set(String::NewSymbol("test7 offsetof b"), Number::New(offsetof(test7, b)));
-  target->Set(String::NewSymbol("test7 offsetof c"), Number::New(offsetof(test7, c)));
-  target->Set(String::NewSymbol("test7 offsetof d"), Number::New(offsetof(test7, d)));
+  target->Set(NanNew<v8::String>("test7 sizeof"), NanNew<v8::Number>(sizeof(test7)));
+  target->Set(NanNew<v8::String>("test7 alignof"), NanNew<v8::Number>(__alignof__(test7)));
+  target->Set(NanNew<v8::String>("test7 offsetof a"), NanNew<v8::Number>(offsetof(test7, a)));
+  target->Set(NanNew<v8::String>("test7 offsetof b"), NanNew<v8::Number>(offsetof(test7, b)));
+  target->Set(NanNew<v8::String>("test7 offsetof c"), NanNew<v8::Number>(offsetof(test7, c)));
+  target->Set(NanNew<v8::String>("test7 offsetof d"), NanNew<v8::Number>(offsetof(test7, d)));
 
-  target->Set(String::NewSymbol("test8 sizeof"), Number::New(sizeof(test8)));
-  target->Set(String::NewSymbol("test8 alignof"), Number::New(__alignof__(test8)));
-  target->Set(String::NewSymbol("test8 offsetof a"), Number::New(offsetof(test8, a)));
-  target->Set(String::NewSymbol("test8 offsetof b"), Number::New(offsetof(test8, b)));
-  target->Set(String::NewSymbol("test8 offsetof c"), Number::New(offsetof(test8, c)));
+  target->Set(NanNew<v8::String>("test8 sizeof"), NanNew<v8::Number>(sizeof(test8)));
+  target->Set(NanNew<v8::String>("test8 alignof"), NanNew<v8::Number>(__alignof__(test8)));
+  target->Set(NanNew<v8::String>("test8 offsetof a"), NanNew<v8::Number>(offsetof(test8, a)));
+  target->Set(NanNew<v8::String>("test8 offsetof b"), NanNew<v8::Number>(offsetof(test8, b)));
+  target->Set(NanNew<v8::String>("test8 offsetof c"), NanNew<v8::Number>(offsetof(test8, c)));
 }
 
 } // anonymous namespace
