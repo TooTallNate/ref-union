@@ -1,7 +1,7 @@
 ref-union
 =========
 ### Create ABI-compliant "[union][]" instances on top of Buffers
-[![Build Status](https://secure.travis-ci.org/TooTallNate/ref-union.png)](http://travis-ci.org/TooTallNate/ref-union)
+[![Build Status](https://secure.travis-ci.org/TooTallNate/ref-union.svg)](https://travis-ci.org/TooTallNate/ref-union)
 
 
 
