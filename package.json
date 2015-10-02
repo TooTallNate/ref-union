@@ -16,6 +16,7 @@
     "url": "git://github.com/TooTallNate/ref-union.git"
   },
   "main": "./lib/union.js",
+  "license": "MIT",
   "scripts": {
     "test": "node-gyp rebuild --directory test && mocha -gc --reporter spec"
   },
