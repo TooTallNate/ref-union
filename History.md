@@ -1,4 +1,10 @@
 
+0.0.4 / 2015-10-02
+==================
+
+  * moar tests
+  * update deps and tests for nan v2 / node.js v4
+
 0.0.3 / 2014-06-19
 ==================
 
