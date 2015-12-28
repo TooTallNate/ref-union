@@ -1,4 +1,13 @@
 
+1.0.1 / 2015-12-27
+==================
+
+  * test node v5
+  * package: more lenient "bindings" version
+  * package: add "license" field
+  * package: add a few more keywords
+  * README: use SVG for AppVeyor badge
+
 1.0.0 / 2015-10-02
 ==================
 
